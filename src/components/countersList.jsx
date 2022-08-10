@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import Counter from "./counter"
 
-const CountersList = () => {
-    const initialState = [
+const initialState = [
         { id: 0, value: 0, name: "Ненужная вещь", price: "200" },
         { id: 1, value: 0, name: "Ложка" },
         { id: 2, value: 0, name: "Вилка" },
@@ -10,24 +9,32 @@ const CountersList = () => {
         { id: 4, value: 0, name: "Набор минималиста" },
     ];
 
+const CountersList = () => {
     const [counters, setCounters] = useState(initialState);
+    
     const handleDelete = (id) => {
         const newCounters = counters.filter((c) => c.id !== id);
+        
         setCounters(newCounters);
     };
+    
     const handleReset = () => {
         setCounters(initialState);
-        console.log("handle reset");
+        console.log("handle reset"); // надо удалять
     };
+    
     const handleIncrement = (id) => {
         const elementIndex = counters.findIndex((c) => c.id === id);
         const newCounters = [...counters];
+        
         newCounters[elementIndex].value++;
         setCounters(newCounters);
     };
+    
     const handleDecrement = (id) => {
         const elementIndex = counters.findIndex((c) => c.id === id);
         const newCounters = [...counters];
+        
         newCounters[elementIndex].value--;
         setCounters(newCounters);
     };
