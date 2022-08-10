@@ -7,15 +7,17 @@ const Counter = (props) => {
     const formatValue = () => {
         return value === 0 ? "empty" : value;
     };
+    
     const getBageClasses = () => {
-        let classes = "badge m-2 ";
-        classes += value === 0 ? "bg-warning" : "bg-primary";
+        const classes = "badge m-2 " + (value === 0 ? "bg-warning" : "bg-primary"); // тут может быть небольшая ошибка 
+
         return classes;
     };
 
     const handleIncrement = () => {
         props.onIncrement(props.id);
     };
+    
     const handleDecrement = () => {
         props.onDecrement(props.id);
     };
